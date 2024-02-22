@@ -1,0 +1,76 @@
+{
+    "options": {
+        "verbose": "True",
+        "units": "lin",
+        "opt_veg": "NDVI",
+        "opt_calib": "1",
+        "opt_cost": "KGE",
+        "opt_field": "repietra",
+        "start_date": "2022-09-01",
+        "end_date": "2023-06-01",
+        "format_date": "%Y-%m-%d",
+        "add_description": ""
+    },
+    "paths": {
+        "root": "/home/martina/Documents/thesis-codes/",
+        "data_input": {
+            "file_sm15": "REPIETRA/DATI_SM/LECCSML15.xlsx",
+            "file_sm35": "REPIETRA/DATI_SM/LECCSML35.xlsx"
+        },
+        "data_output": {
+            "folder_plot": "REPIETRA/Plot/",
+            "filename_template": "{opt_field}_{timestr}_{add_description}",
+            "filename_params": "_params",
+            "filename_table_machine": "_table-mach",
+            "filename_table_params": "_table-params",
+            "filename_triple": "_plot-double",
+            "filename_scatter": "_plot-scatter",
+            "extension_plot": ".svg",
+            "opt_save": "True"
+        }
+    },
+    "input": {
+        "col_date"      : "Measurement.Time",
+        "col_rain"      : "precipitation",
+        "col_temp"      : "temperature",
+        "col_sm15"      : "LECCSML15",
+        "col_sm35"      : "LECCSML35",
+        "time_freq_in"  : "h",
+        "time_freq_out" : "h",
+        "time_form"     : "%Y-%m-%d %H:%M:%S"
+    },
+    "field_params": {
+        "epot" : "hamon",
+        "lat_deg" : 43.888,
+        "saturation": 0.51,
+        "field_capacity": 0.35,
+        "wilting_point": 0.12,
+        "depth_single" : 350
+    },
+    "calibration" : {
+        "PAR": {
+            "a"      : 1,
+            "Kc0"    : 0.1,
+            "n1"     : 10,
+            "Ksat1"  : 10,
+            "depth"  : 1000,
+            "WW_fc"  : 0.3,
+            "WW_w"   : 0.1
+        },
+        "bounds": {
+            "low" : [0.0, 0.0, 0.0, 0.0, 100, 0.2, 0.05],
+            "up" : [10.0, 10.0, 100.0, 100.0, 2E3, 0.5, 0.3]
+        },
+        "run_params": {
+            "nrun": 1,
+            "n_particles": 50,
+            "n_step": 200,
+            "optim": "global",
+            "norma": 2,
+            "verbose_calib": "True"
+        }
+    },
+    "automate": {
+        "flag": "True"
+    }
+}

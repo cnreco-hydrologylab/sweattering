@@ -1,0 +1,17 @@
+name: satellite
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - pip
+  - jupyter
+  - jupyterlab
+  - ipykernel
+  - openpyxl
+  - pip:
+    - pyswarms
+    - hydroeval

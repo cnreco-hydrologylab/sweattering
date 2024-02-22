@@ -1,0 +1,5 @@
+﻿name: google_libraries
+channels:
+- conda-forge
+- defaults
+dependencies:
